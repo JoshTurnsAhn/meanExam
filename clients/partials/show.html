@@ -1,0 +1,17 @@
+<div ng-controller='showController'>
+  <nav>
+    Bucket List
+    <a href="#/dashboard">Home</a>
+    <a href="/logout">Logout</a>
+  </nav>
+  <h1>{{buckets[0]._user.name}}'s Bucket List'</h1>
+
+<h2>Done</h2>
+<ul>
+  <li ng-repeat="bucket in buckets | filter:'false'"><input type="checkbox" ng-model="bucket.checked">{{bucket._user.name}} | {{bucket.title}} - {{bucket.description}}  {{bucket.createdAt|date: 'MMM dd y'}}</li>
+</ul>
+
+<ul>
+  <li ng-repeat="bucket in buckets | filter:'true'"><input type="checkbox" ng-model="bucket.checked">{{bucket._user.name}} | {{bucket.title}} - {{bucket.description}}  {{bucket.createdAt|date: 'MMM dd y'}}</li>
+</ul>
+</div>
